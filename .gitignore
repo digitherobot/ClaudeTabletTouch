@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.env
+.env
+
+# Node
+node_modules/
+dist/
+.DS_Store
+
+# Frontend env
+frontend/.env
+frontend/.env.local
+
+ClaudeTabletTouch.zip
