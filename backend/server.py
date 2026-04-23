@@ -28,13 +28,19 @@ async def get_discord():
 async def health_check(path, request_headers):
     """Simple HTTP health check for Railway."""
     if path == '/health':
+        body = json.dumps({
+            'status': 'ok',
+            'discord_ready': discord_sender is not None and discord_sender._channel is not None,
+        }).encode('utf-8')
         return (
             HTTPStatus.OK,
-            [('Content-Type', 'application/json')],
-            json.dumps({
-                'status': 'ok',
-                'discord_ready': discord_sender is not None and discord_sender._channel is not None,
-            }).encode('utf-8')
+            [
+                ('Content-Type', 'application/json'),
+                ('Access-Control-Allow-Origin', '*'),
+                ('Access-Control-Allow-Methods', 'GET, OPTIONS'),
+                ('Access-Control-Allow-Headers', 'Content-Type'),
+            ],
+            body
         )
     # Don't intercept WebSocket handshake at root path
     return None
