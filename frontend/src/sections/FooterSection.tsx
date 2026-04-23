@@ -55,7 +55,7 @@ export default function FooterSection() {
               with AI through physical touch.
             </p>
             <div className="mt-4 text-xs font-mono text-muted-ink/50 break-all">
-              discord.gg/qFxU2JT9
+              0xa11CbA49FD3Bb7Acc35dF49ff4BfDAD1519706EF
             </div>
           </div>
 
